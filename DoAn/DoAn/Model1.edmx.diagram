@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="18d2b12113aa40daa44eb8ce09d5d943" Name="Diagram1">
+        <EntityTypeShape EntityType="QLDUNGCUModel.CHITIETMUON" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDUNGCUModel.DUNGCU" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDUNGCUModel.GIAOVIEN" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDUNGCUModel.LOP" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLDUNGCUModel.MUON" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="QLDUNGCUModel.FK_CHITIETMUON_MADUNGCU" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDUNGCUModel.FK_CHITIETMUON_SOPHIEUMUON" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDUNGCUModel.FK_MUON_MAGIAOVIEN" ManuallyRouted="false" />
+        <AssociationConnector Association="QLDUNGCUModel.FK_MUON_MALOP" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

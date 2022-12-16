@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLDUNGCUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CHITIETMUON">
+    <Key>
+      <PropertyRef Name="SOPHIEUMUON" />
+      <PropertyRef Name="MADUNGCU" />
+    </Key>
+    <Property Name="SOPHIEUMUON" Type="int" Nullable="false" />
+    <Property Name="MADUNGCU" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="NGAYTRA" Type="date" />
+    <Property Name="GIOTRA" Type="time" Precision="7" />
+  </EntityType>
+  <EntityType Name="DUNGCU">
+    <Key>
+      <PropertyRef Name="MADUNGCU" />
+    </Key>
+    <Property Name="MADUNGCU" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="TENDUNGCU" Type="nvarchar" MaxLength="50" />
+    <Property Name="NGAYMUA" Type="datetime" />
+    <Property Name="GIATIEN" Type="int" />
+    <Property Name="CONSUDUNGDUOC" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="GIAOVIEN">
+    <Key>
+      <PropertyRef Name="MAGIAOVIEN" />
+    </Key>
+    <Property Name="MAGIAOVIEN" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="TENGIAOVIEN" Type="nvarchar" MaxLength="50" />
+    <Property Name="THUOCBOMON" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LOP">
+    <Key>
+      <PropertyRef Name="MALOP" />
+    </Key>
+    <Property Name="MALOP" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="TENLOP" Type="nvarchar" MaxLength="50" />
+    <Property Name="TENLOPTRUONG" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MUON">
+    <Key>
+      <PropertyRef Name="SOPHIEUMUON" />
+    </Key>
+    <Property Name="SOPHIEUMUON" Type="int" Nullable="false" />
+    <Property Name="NGAYMUON" Type="date" />
+    <Property Name="GIOMUON" Type="time" Precision="7" />
+    <Property Name="MALOP" Type="char" MaxLength="10" />
+    <Property Name="MAGIAOVIEN" Type="char" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_CHITIETMUON_MADUNGCU">
+    <End Role="DUNGCU" Type="Self.DUNGCU" Multiplicity="1" />
+    <End Role="CHITIETMUON" Type="Self.CHITIETMUON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DUNGCU">
+        <PropertyRef Name="MADUNGCU" />
+      </Principal>
+      <Dependent Role="CHITIETMUON">
+        <PropertyRef Name="MADUNGCU" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHITIETMUON_SOPHIEUMUON">
+    <End Role="MUON" Type="Self.MUON" Multiplicity="1" />
+    <End Role="CHITIETMUON" Type="Self.CHITIETMUON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MUON">
+        <PropertyRef Name="SOPHIEUMUON" />
+      </Principal>
+      <Dependent Role="CHITIETMUON">
+        <PropertyRef Name="SOPHIEUMUON" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MUON_MAGIAOVIEN">
+    <End Role="GIAOVIEN" Type="Self.GIAOVIEN" Multiplicity="0..1" />
+    <End Role="MUON" Type="Self.MUON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GIAOVIEN">
+        <PropertyRef Name="MAGIAOVIEN" />
+      </Principal>
+      <Dependent Role="MUON">
+        <PropertyRef Name="MAGIAOVIEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MUON_MALOP">
+    <End Role="LOP" Type="Self.LOP" Multiplicity="0..1" />
+    <End Role="MUON" Type="Self.MUON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LOP">
+        <PropertyRef Name="MALOP" />
+      </Principal>
+      <Dependent Role="MUON">
+        <PropertyRef Name="MALOP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLDUNGCUModelStoreContainer">
+    <EntitySet Name="CHITIETMUON" EntityType="Self.CHITIETMUON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DUNGCU" EntityType="Self.DUNGCU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GIAOVIEN" EntityType="Self.GIAOVIEN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LOP" EntityType="Self.LOP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MUON" EntityType="Self.MUON" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CHITIETMUON_MADUNGCU" Association="Self.FK_CHITIETMUON_MADUNGCU">
+      <End Role="DUNGCU" EntitySet="DUNGCU" />
+      <End Role="CHITIETMUON" EntitySet="CHITIETMUON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHITIETMUON_SOPHIEUMUON" Association="Self.FK_CHITIETMUON_SOPHIEUMUON">
+      <End Role="MUON" EntitySet="MUON" />
+      <End Role="CHITIETMUON" EntitySet="CHITIETMUON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MUON_MAGIAOVIEN" Association="Self.FK_MUON_MAGIAOVIEN">
+      <End Role="GIAOVIEN" EntitySet="GIAOVIEN" />
+      <End Role="MUON" EntitySet="MUON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MUON_MALOP" Association="Self.FK_MUON_MALOP">
+      <End Role="LOP" EntitySet="LOP" />
+      <End Role="MUON" EntitySet="MUON" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

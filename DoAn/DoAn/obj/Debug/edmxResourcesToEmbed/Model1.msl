@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLDUNGCUModelStoreContainer" CdmEntityContainer="QLDUNGCUEntities">
+    <EntitySetMapping Name="CHITIETMUONs">
+      <EntityTypeMapping TypeName="QLDUNGCUModel.CHITIETMUON">
+        <MappingFragment StoreEntitySet="CHITIETMUON">
+          <ScalarProperty Name="SOPHIEUMUON" ColumnName="SOPHIEUMUON" />
+          <ScalarProperty Name="MADUNGCU" ColumnName="MADUNGCU" />
+          <ScalarProperty Name="NGAYTRA" ColumnName="NGAYTRA" />
+          <ScalarProperty Name="GIOTRA" ColumnName="GIOTRA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DUNGCUs">
+      <EntityTypeMapping TypeName="QLDUNGCUModel.DUNGCU">
+        <MappingFragment StoreEntitySet="DUNGCU">
+          <ScalarProperty Name="MADUNGCU" ColumnName="MADUNGCU" />
+          <ScalarProperty Name="TENDUNGCU" ColumnName="TENDUNGCU" />
+          <ScalarProperty Name="NGAYMUA" ColumnName="NGAYMUA" />
+          <ScalarProperty Name="GIATIEN" ColumnName="GIATIEN" />
+          <ScalarProperty Name="CONSUDUNGDUOC" ColumnName="CONSUDUNGDUOC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GIAOVIENs">
+      <EntityTypeMapping TypeName="QLDUNGCUModel.GIAOVIEN">
+        <MappingFragment StoreEntitySet="GIAOVIEN">
+          <ScalarProperty Name="MAGIAOVIEN" ColumnName="MAGIAOVIEN" />
+          <ScalarProperty Name="TENGIAOVIEN" ColumnName="TENGIAOVIEN" />
+          <ScalarProperty Name="THUOCBOMON" ColumnName="THUOCBOMON" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LOPs">
+      <EntityTypeMapping TypeName="QLDUNGCUModel.LOP">
+        <MappingFragment StoreEntitySet="LOP">
+          <ScalarProperty Name="MALOP" ColumnName="MALOP" />
+          <ScalarProperty Name="TENLOP" ColumnName="TENLOP" />
+          <ScalarProperty Name="TENLOPTRUONG" ColumnName="TENLOPTRUONG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MUONs">
+      <EntityTypeMapping TypeName="QLDUNGCUModel.MUON">
+        <MappingFragment StoreEntitySet="MUON">
+          <ScalarProperty Name="SOPHIEUMUON" ColumnName="SOPHIEUMUON" />
+          <ScalarProperty Name="NGAYMUON" ColumnName="NGAYMUON" />
+          <ScalarProperty Name="GIOMUON" ColumnName="GIOMUON" />
+          <ScalarProperty Name="MALOP" ColumnName="MALOP" />
+          <ScalarProperty Name="MAGIAOVIEN" ColumnName="MAGIAOVIEN" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
