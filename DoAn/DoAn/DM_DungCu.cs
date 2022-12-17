@@ -25,7 +25,7 @@ namespace DoAn
         {
             List<DUNGCU> dungcus = data.DUNGCUs.ToList();
 
-            dgv_DungCu.DataSource = (from dungcu in dungcus
+            gridControl1.DataSource = (from dungcu in dungcus
                                        select new
                                        {
                                            dungcu.MADUNGCU,
@@ -113,30 +113,10 @@ namespace DoAn
             getData();
         }
 
-        private void dgv_DungCu_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void repositoryItemButtonEdit1_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow dgv = dgv_DungCu.Rows[e.RowIndex];
-                tb_MaDC.Text = dgv.Cells[0].Value.ToString();
-                tb_TenDC.Text = dgv.Cells[1].Value.ToString();
-                tb_GiaTien.Text = dgv.Cells[2].Value.ToString();
-                dtp_NgayMua.Value = DateTime.Parse(dgv.Cells[3].Value.ToString());
-                if (dgv.Cells[4].Value.ToString() == "Được")
-                {
-                    rb_Yes.Checked = true;
-                }
-                else
-                {
-                    rb_No.Checked = true;
-                }
-                tb_MaDC.ReadOnly = true;
-                tb_TenDC.ReadOnly = true;
-                dtp_NgayMua.Enabled = false;
-                tb_GiaTien.ReadOnly = true;
-                rb_No.Enabled = false;
-                rb_Yes.Enabled = false;
-            }
+
         }
     }
 }

@@ -92,20 +92,9 @@ namespace DoAn
             getData();
         }
 
-        private void dgv_GiaoVien_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void ribbonStatusBar1_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow dgv = dgv_GiaoVien.Rows[e.RowIndex];
-                tb_MaGV.Text = dgv.Cells[0].Value.ToString();
-                tb_TenGV.Text = dgv.Cells[1].Value.ToString();
-                tb_ThuocBM.Text = dgv.Cells[2].Value.ToString();
-            }
-            tb_MaGV.ReadOnly = true;
-            tb_TenGV.ReadOnly = true;
-            tb_ThuocBM.ReadOnly = true;
+
         }
-
-
     }
 }

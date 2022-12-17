@@ -13,11 +13,16 @@ using OfficeOpenXml;
 using xls = Microsoft.Office.Interop.Excel;
 using OfficeOpenXml.Table;
 using Aspose.Cells;
+using DevExpress.Utils.Drawing;
+using static DevExpress.Data.Filtering.Helpers.SubExprHelper;
+using DevExpress.ClipboardSource.SpreadsheetML;
 
 namespace DoAn
 {
     public partial class Form_Main : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        QLDUNGCUEntities data = new QLDUNGCUEntities();
+
         public Form_Main()
         {
             InitializeComponent();
@@ -77,8 +82,9 @@ namespace DoAn
                     }
                     dataTable.Rows.Add(listRow.ToArray());
                 }
+                dtg_excelData.DataSource = dataTable;
             }
-        }
+        }   
 
         private void btn_browse_Click(object sender, EventArgs e)
         {
@@ -100,40 +106,110 @@ namespace DoAn
             //    }
             //}
 
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Chọn file excel";
-            openFileDialog.Filter = "excel file | *.xls;*.xlsx"; // open file with xls and xlsx format
-            openFileDialog.RestoreDirectory = true; // remember last path
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                InitialDirectory = @"Downloads",
+                Title = "Chọn File Cần Nhập",
+
+                CheckFileExists = true,
+                CheckPathExists = true,
+
+                DefaultExt = "xls",
+                Filter = "Excel Files|*.xls;*.xlsx;*.xlsm",
+                RestoreDirectory = true,
+
+                ReadOnlyChecked = true,
+                ShowReadOnly = true
+            };
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 tb_fileAddress.Text = openFileDialog.FileName;
 
-                //copy file to another folder
-                string sourcePath = Path.GetDirectoryName(openFileDialog.FileName);
-                string targetPath = "C:\\TDT\\hk3nam1\\CNPM\\DoAn\\DoAn\\bin\\Debug";
-                   
-                //combine file and path
-                string sourceFile = System.IO.Path.Combine(sourcePath, Path.GetFileName(openFileDialog.FileName));
-                string destFile = System.IO.Path.Combine(targetPath, Path.GetFileName(openFileDialog.FileName));
-
-                //copy file from source folder to destination folder
-                System.IO.File.Copy(sourceFile, destFile, true);
-
-                Workbook workbook = new Workbook(openFileDialog.FileName);
-                // Create a file stream for Excel file
-                FileStream stream = new FileStream("output.xlsx", FileMode.CreateNew);
-
-                // Export Excel file to stream
-                workbook.Save(stream, new OoxmlSaveOptions(SaveFormat.Xlsx));
-
-                // Perform operations on stream
-
-                // Close the stream
-                stream.Close();
+                try
+                {
+                    readFile(openFileDialog.FileName);
+                    MessageBox.Show("Đọc file thành công!", "Message");
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Đọc file không thành công!" + ex.Message);
+                }
             }
             
 
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            e.Graphics.DrawImage(bmp, 0, 0);
+        }
+
+        Bitmap bmp;
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+            bmp = new Bitmap(this.Size.Width, this.Size.Height, g);
+            Graphics g2 = Graphics.FromImage(bmp);
+            g2.CopyFromScreen(this.Location.X, this.Location.Y, 0, 0, this.Size);
+            printPreviewDialog1.ShowDialog();
+        }
+
+        private void Form_Main_Load(object sender, EventArgs e)
+        {
+            List<DUNGCU> dungcus = data.DUNGCUs.ToList();
+
+            dataGridView1.DataSource = (from dungcu in dungcus
+                                       select new
+                                       {
+                                           dungcu.MADUNGCU,
+                                           dungcu.TENDUNGCU,
+                                           dungcu.GIATIEN,
+                                           dungcu.NGAYMUA,
+                                           dungcu.CONSUDUNGDUOC
+                                       }).ToList();
+        }
+
+        private void writeFile(string path)
+        {
+            xls.Application application = new xls.Application();
+            application.Application.Workbooks.Add(Type.Missing);
+            for(int i = 0; i < dataGridView1.Columns.Count; i++)
+            {
+                application.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+            }
+            for(int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                for(int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    application.Cells[i+2 , j+1] = dataGridView1.Rows[i].Cells[j].Value;
+                }
+            }
+            application.Columns.AutoFit();
+            application.ActiveWorkbook.SaveCopyAs(path);
+            application.ActiveWorkbook.Saved = true;
+        }
+
+        private void btn_export_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = "Export excel";
+            saveFileDialog.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
+
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    writeFile(saveFileDialog.FileName);
+                    MessageBox.Show("Xuất file thành công!");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Xuất file không thành công!" + ex.Message);
+                }
+            }
         }
     }
 }

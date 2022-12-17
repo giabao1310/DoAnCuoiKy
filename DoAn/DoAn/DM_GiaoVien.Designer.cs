@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgv_GiaoVien = new System.Windows.Forms.DataGridView();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.bsiRecordsCount = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -39,37 +38,44 @@
             this.btnRefreshGV = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.Dm_TenGV = new System.Windows.Forms.GroupBox();
+            this.MaGiaoVien = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenGiaoVien = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ThuocBoMon = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
             this.tb_MaGV = new System.Windows.Forms.TextBox();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tb_TenGV = new System.Windows.Forms.TextBox();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tb_ThuocBM = new System.Windows.Forms.TextBox();
-            this.DM_ThuocBoMon = new System.Windows.Forms.Label();
-            this.Dm_TenGiaoVien = new System.Windows.Forms.Label();
-            this.DM_MaGiaoVien = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_GiaoVien)).BeginInit();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dgv_GiaoVien = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.MaGV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenGV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.ThuocBM = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
-            this.Dm_TenGV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_GiaoVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dgv_GiaoVien
-            // 
-            this.dgv_GiaoVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_GiaoVien.Location = new System.Drawing.Point(0, 398);
-            this.dgv_GiaoVien.Name = "dgv_GiaoVien";
-            this.dgv_GiaoVien.RowHeadersWidth = 51;
-            this.dgv_GiaoVien.RowTemplate.Height = 24;
-            this.dgv_GiaoVien.Size = new System.Drawing.Size(922, 299);
-            this.dgv_GiaoVien.TabIndex = 12;
-            this.dgv_GiaoVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_GiaoVien_CellClick);
             // 
             // ribbonStatusBar1
             // 
             this.ribbonStatusBar1.ItemLinks.Add(this.bsiRecordsCount);
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 707);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 709);
             this.ribbonStatusBar1.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(922, 30);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(922, 28);
+            this.ribbonStatusBar1.Click += new System.EventHandler(this.ribbonStatusBar1_Click);
             // 
             // bsiRecordsCount
             // 
@@ -159,81 +165,176 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Tasks";
             // 
-            // Dm_TenGV
+            // MaGiaoVien
             // 
-            this.Dm_TenGV.Controls.Add(this.tb_MaGV);
-            this.Dm_TenGV.Controls.Add(this.tb_TenGV);
-            this.Dm_TenGV.Controls.Add(this.tb_ThuocBM);
-            this.Dm_TenGV.Controls.Add(this.DM_ThuocBoMon);
-            this.Dm_TenGV.Controls.Add(this.Dm_TenGiaoVien);
-            this.Dm_TenGV.Controls.Add(this.DM_MaGiaoVien);
-            this.Dm_TenGV.Location = new System.Drawing.Point(56, 215);
-            this.Dm_TenGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Dm_TenGV.Name = "Dm_TenGV";
-            this.Dm_TenGV.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Dm_TenGV.Size = new System.Drawing.Size(773, 150);
-            this.Dm_TenGV.TabIndex = 17;
-            this.Dm_TenGV.TabStop = false;
-            this.Dm_TenGV.Text = "Thông tin giáo viên";
+            this.MaGiaoVien.Caption = "Mã Giáo Viên";
+            this.MaGiaoVien.FieldName = "MAGIAOVIEN";
+            this.MaGiaoVien.MinWidth = 25;
+            this.MaGiaoVien.Name = "MaGiaoVien";
+            this.MaGiaoVien.Visible = true;
+            this.MaGiaoVien.VisibleIndex = 0;
+            this.MaGiaoVien.Width = 94;
+            // 
+            // TenGiaoVien
+            // 
+            this.TenGiaoVien.Caption = "Tên Giáo Viên";
+            this.TenGiaoVien.FieldName = "TENGIAOVIEN";
+            this.TenGiaoVien.MinWidth = 25;
+            this.TenGiaoVien.Name = "TenGiaoVien";
+            this.TenGiaoVien.Visible = true;
+            this.TenGiaoVien.VisibleIndex = 1;
+            this.TenGiaoVien.Width = 94;
+            // 
+            // ThuocBoMon
+            // 
+            this.ThuocBoMon.Caption = "Thuộc Bộ Môn";
+            this.ThuocBoMon.FieldName = "THUOCBOMON";
+            this.ThuocBoMon.MinWidth = 25;
+            this.ThuocBoMon.Name = "ThuocBoMon";
+            this.ThuocBoMon.Visible = true;
+            this.ThuocBoMon.VisibleIndex = 2;
+            this.ThuocBoMon.Width = 94;
+            // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.dgv_GiaoVien);
+            this.layoutControl1.Controls.Add(this.tb_ThuocBM);
+            this.layoutControl1.Controls.Add(this.tb_TenGV);
+            this.layoutControl1.Controls.Add(this.tb_MaGV);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 193);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(922, 516);
+            this.layoutControl1.TabIndex = 23;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
+            // Root
+            // 
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(922, 516);
+            this.Root.TextVisible = false;
             // 
             // tb_MaGV
             // 
-            this.tb_MaGV.Location = new System.Drawing.Point(105, 57);
-            this.tb_MaGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_MaGV.Location = new System.Drawing.Point(106, 12);
             this.tb_MaGV.Name = "tb_MaGV";
-            this.tb_MaGV.Size = new System.Drawing.Size(207, 23);
-            this.tb_MaGV.TabIndex = 9;
+            this.tb_MaGV.Size = new System.Drawing.Size(804, 25);
+            this.tb_MaGV.TabIndex = 4;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.tb_MaGV;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(902, 29);
+            this.layoutControlItem1.Text = "Mã giáo viên";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(82, 16);
             // 
             // tb_TenGV
             // 
-            this.tb_TenGV.Location = new System.Drawing.Point(105, 105);
-            this.tb_TenGV.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_TenGV.Location = new System.Drawing.Point(106, 41);
             this.tb_TenGV.Name = "tb_TenGV";
-            this.tb_TenGV.Size = new System.Drawing.Size(207, 23);
-            this.tb_TenGV.TabIndex = 8;
+            this.tb_TenGV.Size = new System.Drawing.Size(804, 25);
+            this.tb_TenGV.TabIndex = 5;
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.tb_TenGV;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 29);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(902, 29);
+            this.layoutControlItem2.Text = "Tên giáo viên";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(82, 16);
             // 
             // tb_ThuocBM
             // 
-            this.tb_ThuocBM.Location = new System.Drawing.Point(538, 57);
-            this.tb_ThuocBM.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_ThuocBM.Location = new System.Drawing.Point(106, 70);
             this.tb_ThuocBM.Name = "tb_ThuocBM";
-            this.tb_ThuocBM.Size = new System.Drawing.Size(207, 23);
+            this.tb_ThuocBM.Size = new System.Drawing.Size(804, 25);
             this.tb_ThuocBM.TabIndex = 6;
             // 
-            // DM_ThuocBoMon
+            // layoutControlItem3
             // 
-            this.DM_ThuocBoMon.AutoSize = true;
-            this.DM_ThuocBoMon.Location = new System.Drawing.Point(421, 60);
-            this.DM_ThuocBoMon.Name = "DM_ThuocBoMon";
-            this.DM_ThuocBoMon.Size = new System.Drawing.Size(89, 16);
-            this.DM_ThuocBoMon.TabIndex = 3;
-            this.DM_ThuocBoMon.Text = "Thuộc bộ môn";
+            this.layoutControlItem3.Control = this.tb_ThuocBM;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 58);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(902, 29);
+            this.layoutControlItem3.Text = "Thuộc bộ môn";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(82, 16);
             // 
-            // Dm_TenGiaoVien
+            // dgv_GiaoVien
             // 
-            this.Dm_TenGiaoVien.AutoSize = true;
-            this.Dm_TenGiaoVien.Location = new System.Drawing.Point(5, 105);
-            this.Dm_TenGiaoVien.Name = "Dm_TenGiaoVien";
-            this.Dm_TenGiaoVien.Size = new System.Drawing.Size(84, 16);
-            this.Dm_TenGiaoVien.TabIndex = 1;
-            this.Dm_TenGiaoVien.Text = "Tên giáo viên";
+            this.dgv_GiaoVien.Location = new System.Drawing.Point(12, 99);
+            this.dgv_GiaoVien.MainView = this.gridView1;
+            this.dgv_GiaoVien.MenuManager = this.ribbonControl;
+            this.dgv_GiaoVien.Name = "dgv_GiaoVien";
+            this.dgv_GiaoVien.Size = new System.Drawing.Size(898, 405);
+            this.dgv_GiaoVien.TabIndex = 7;
+            this.dgv_GiaoVien.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
             // 
-            // DM_MaGiaoVien
+            // gridView1
             // 
-            this.DM_MaGiaoVien.AutoSize = true;
-            this.DM_MaGiaoVien.Location = new System.Drawing.Point(5, 57);
-            this.DM_MaGiaoVien.Name = "DM_MaGiaoVien";
-            this.DM_MaGiaoVien.Size = new System.Drawing.Size(79, 16);
-            this.DM_MaGiaoVien.TabIndex = 0;
-            this.DM_MaGiaoVien.Text = "Mã giáo viên";
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.MaGV,
+            this.TenGV,
+            this.ThuocBM});
+            this.gridView1.GridControl = this.dgv_GiaoVien;
+            this.gridView1.Name = "gridView1";
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.dgv_GiaoVien;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 87);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(902, 409);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // MaGV
+            // 
+            this.MaGV.Caption = "Mã Giáo Viên";
+            this.MaGV.FieldName = "MAGIAOVIEN";
+            this.MaGV.MinWidth = 25;
+            this.MaGV.Name = "MaGV";
+            this.MaGV.Visible = true;
+            this.MaGV.VisibleIndex = 0;
+            this.MaGV.Width = 94;
+            // 
+            // TenGV
+            // 
+            this.TenGV.Caption = "Tên Giáo Viên";
+            this.TenGV.FieldName = "TENGIAOVIEN";
+            this.TenGV.MinWidth = 25;
+            this.TenGV.Name = "TenGV";
+            this.TenGV.Visible = true;
+            this.TenGV.VisibleIndex = 1;
+            this.TenGV.Width = 94;
+            // 
+            // ThuocBM
+            // 
+            this.ThuocBM.Caption = "Thuộc Bộ Môn";
+            this.ThuocBM.FieldName = "THUOCBOMON";
+            this.ThuocBM.MinWidth = 25;
+            this.ThuocBM.Name = "ThuocBM";
+            this.ThuocBM.Visible = true;
+            this.ThuocBM.VisibleIndex = 2;
+            this.ThuocBM.Width = 94;
             // 
             // DM_GiaoVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 737);
-            this.Controls.Add(this.Dm_TenGV);
-            this.Controls.Add(this.dgv_GiaoVien);
+            this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.ribbonStatusBar1);
             this.Controls.Add(this.ribbonControl);
             this.Name = "DM_GiaoVien";
@@ -242,17 +343,22 @@
             this.StatusBar = this.ribbonStatusBar1;
             this.Text = "Danh mục giáo viên";
             this.Load += new System.EventHandler(this.DM_GiaoVien_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_GiaoVien)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
-            this.Dm_TenGV.ResumeLayout(false);
-            this.Dm_TenGV.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_GiaoVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgv_GiaoVien;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
         private DevExpress.XtraBars.BarStaticItem bsiRecordsCount;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
@@ -263,12 +369,22 @@
         private DevExpress.XtraBars.BarButtonItem btnRefreshGV;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private System.Windows.Forms.GroupBox Dm_TenGV;
-        private System.Windows.Forms.TextBox tb_MaGV;
-        private System.Windows.Forms.TextBox tb_TenGV;
+        private DevExpress.XtraGrid.Columns.GridColumn MaGiaoVien;
+        private DevExpress.XtraGrid.Columns.GridColumn TenGiaoVien;
+        private DevExpress.XtraGrid.Columns.GridColumn ThuocBoMon;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private System.Windows.Forms.TextBox tb_ThuocBM;
-        private System.Windows.Forms.Label DM_ThuocBoMon;
-        private System.Windows.Forms.Label Dm_TenGiaoVien;
-        private System.Windows.Forms.Label DM_MaGiaoVien;
+        private System.Windows.Forms.TextBox tb_TenGV;
+        private System.Windows.Forms.TextBox tb_MaGV;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraGrid.GridControl dgv_GiaoVien;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn MaGV;
+        private DevExpress.XtraGrid.Columns.GridColumn TenGV;
+        private DevExpress.XtraGrid.Columns.GridColumn ThuocBM;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
     }
 }

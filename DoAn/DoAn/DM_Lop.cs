@@ -92,19 +92,5 @@ namespace DoAn
 
             getData();
         }
-
-        private void dgv_Lop_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow dgv = dgv_Lop.Rows[e.RowIndex];
-                tb_MaLop.Text = dgv.Cells[0].Value.ToString();
-                tb_TenLop.Text = dgv.Cells[1].Value.ToString();
-                tb_TenLopTruong.Text = dgv.Cells[2].Value.ToString();
-            }
-            tb_MaLop.ReadOnly = true;
-            tb_TenLop.ReadOnly = true;
-            tb_TenLopTruong.ReadOnly = true;
-        }
     }
 }

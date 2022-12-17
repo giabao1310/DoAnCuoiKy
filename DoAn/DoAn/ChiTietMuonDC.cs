@@ -134,20 +134,7 @@ namespace DoAn
             }
         }
 
-        private void dgv_CtMuon_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow dgv = dgv_CtMuon.Rows[e.RowIndex];
-                cbb_SoPhieuMuon.Text = dgv.Cells[0].Value.ToString();
-                cbb_MaDungCu.Text = dgv.Cells[1].Value.ToString();
-                dtp_NgayTra.Value = DateTime.Parse(dgv.Cells[2].Value.ToString());
-                dtp_GioTra.Value = DateTime.Parse(dgv.Cells[3].Value.ToString());
-            }
-            cbb_SoPhieuMuon.Enabled = false;
-            cbb_MaDungCu.Enabled = false;
-        }
-
+       
         private void btnRefreshCtMuon_ItemClick(object sender, EventArgs e)
         {
             dgv_CtMuon.DataSource = null;

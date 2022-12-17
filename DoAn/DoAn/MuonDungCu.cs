@@ -84,24 +84,6 @@ namespace DoAn
                                      }).ToList();
         }
 
-        private void dgv_MuonDC_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow dgv = dgv_MuonDC.Rows[e.RowIndex];
-                tb_SoPM.Text = dgv.Cells[0].Value.ToString();
-                dtp_NgayMuon.Value = DateTime.Parse(dgv.Cells[1].Value.ToString());
-                dtp_GioMuon.Value = DateTime.Parse(dgv.Cells[2].Value.ToString());
-                cbb_MaGV.Text = dgv.Cells[3].Value.ToString();
-                cbb_MaLop.Text = dgv.Cells[4].Value.ToString();
-            }
-            tb_SoPM.ReadOnly = true;
-            dtp_GioMuon.Enabled = false;
-            dtp_NgayMuon.Enabled = false;
-            cbb_MaGV.Enabled = false;
-            cbb_MaLop.Enabled = false;
-        }
-
         private void btnDeleteMuon_ItemClick(object sender, EventArgs e)
         {
             if (MessageBox.Show("Bạn có muốn xóa dòng này?", "Alert", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.OK)
@@ -131,6 +113,11 @@ namespace DoAn
             cbb_MaGV.SelectedIndex = 0;
 
             getData();
+        }
+
+        private void dgv_MuonDC_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

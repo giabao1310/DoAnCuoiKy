@@ -38,26 +38,39 @@
             this.btnRefreshLop = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.dgv_Lop = new System.Windows.Forms.DataGridView();
-            this.Dm_ThongTinLop = new System.Windows.Forms.GroupBox();
-            this.tb_MaLop = new System.Windows.Forms.TextBox();
-            this.tb_TenLop = new System.Windows.Forms.TextBox();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.dgv_Lop = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.MaLop = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenLop = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenLopTruong = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tb_TenLopTruong = new System.Windows.Forms.TextBox();
-            this.DM_TenLopTruong = new System.Windows.Forms.Label();
-            this.Dm_TenLop = new System.Windows.Forms.Label();
-            this.DM_MaLop = new System.Windows.Forms.Label();
+            this.tb_TenLop = new System.Windows.Forms.TextBox();
+            this.tb_MaLop = new System.Windows.Forms.TextBox();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
+            this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lop)).BeginInit();
-            this.Dm_ThongTinLop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonStatusBar1
             // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 707);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 709);
             this.ribbonStatusBar1.Margin = new System.Windows.Forms.Padding(4);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(922, 30);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(922, 28);
             // 
             // ribbonControl
             // 
@@ -147,103 +160,164 @@
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Tasks";
             // 
+            // layoutControl1
+            // 
+            this.layoutControl1.Controls.Add(this.dgv_Lop);
+            this.layoutControl1.Controls.Add(this.tb_TenLopTruong);
+            this.layoutControl1.Controls.Add(this.tb_TenLop);
+            this.layoutControl1.Controls.Add(this.tb_MaLop);
+            this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl1.Location = new System.Drawing.Point(0, 193);
+            this.layoutControl1.Name = "layoutControl1";
+            this.layoutControl1.Root = this.Root;
+            this.layoutControl1.Size = new System.Drawing.Size(922, 516);
+            this.layoutControl1.TabIndex = 28;
+            this.layoutControl1.Text = "layoutControl1";
+            // 
             // dgv_Lop
             // 
-            this.dgv_Lop.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Lop.Location = new System.Drawing.Point(0, 401);
+            this.dgv_Lop.Location = new System.Drawing.Point(12, 99);
+            this.dgv_Lop.MainView = this.gridView1;
+            this.dgv_Lop.MenuManager = this.ribbonControl;
             this.dgv_Lop.Name = "dgv_Lop";
-            this.dgv_Lop.RowHeadersWidth = 51;
-            this.dgv_Lop.RowTemplate.Height = 24;
-            this.dgv_Lop.Size = new System.Drawing.Size(922, 299);
-            this.dgv_Lop.TabIndex = 20;
-            this.dgv_Lop.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Lop_CellClick);
+            this.dgv_Lop.Size = new System.Drawing.Size(898, 405);
+            this.dgv_Lop.TabIndex = 7;
+            this.dgv_Lop.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
             // 
-            // Dm_ThongTinLop
+            // gridView1
             // 
-            this.Dm_ThongTinLop.Controls.Add(this.tb_MaLop);
-            this.Dm_ThongTinLop.Controls.Add(this.tb_TenLop);
-            this.Dm_ThongTinLop.Controls.Add(this.tb_TenLopTruong);
-            this.Dm_ThongTinLop.Controls.Add(this.DM_TenLopTruong);
-            this.Dm_ThongTinLop.Controls.Add(this.Dm_TenLop);
-            this.Dm_ThongTinLop.Controls.Add(this.DM_MaLop);
-            this.Dm_ThongTinLop.Location = new System.Drawing.Point(94, 199);
-            this.Dm_ThongTinLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Dm_ThongTinLop.Name = "Dm_ThongTinLop";
-            this.Dm_ThongTinLop.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Dm_ThongTinLop.Size = new System.Drawing.Size(729, 151);
-            this.Dm_ThongTinLop.TabIndex = 25;
-            this.Dm_ThongTinLop.TabStop = false;
-            this.Dm_ThongTinLop.Text = "Thông tin lớp";
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.MaLop,
+            this.TenLop,
+            this.TenLopTruong});
+            this.gridView1.GridControl = this.dgv_Lop;
+            this.gridView1.Name = "gridView1";
             // 
-            // tb_MaLop
+            // MaLop
             // 
-            this.tb_MaLop.Location = new System.Drawing.Point(82, 57);
-            this.tb_MaLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_MaLop.Name = "tb_MaLop";
-            this.tb_MaLop.Size = new System.Drawing.Size(207, 23);
-            this.tb_MaLop.TabIndex = 9;
+            this.MaLop.Caption = "Mã Lớp";
+            this.MaLop.FieldName = "MALOP";
+            this.MaLop.MinWidth = 25;
+            this.MaLop.Name = "MaLop";
+            this.MaLop.Visible = true;
+            this.MaLop.VisibleIndex = 0;
+            this.MaLop.Width = 94;
             // 
-            // tb_TenLop
+            // TenLop
             // 
-            this.tb_TenLop.Location = new System.Drawing.Point(82, 105);
-            this.tb_TenLop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tb_TenLop.Name = "tb_TenLop";
-            this.tb_TenLop.Size = new System.Drawing.Size(207, 23);
-            this.tb_TenLop.TabIndex = 8;
+            this.TenLop.Caption = "Tên Lớp";
+            this.TenLop.FieldName = "TENLOP";
+            this.TenLop.MinWidth = 25;
+            this.TenLop.Name = "TenLop";
+            this.TenLop.Visible = true;
+            this.TenLop.VisibleIndex = 1;
+            this.TenLop.Width = 94;
+            // 
+            // TenLopTruong
+            // 
+            this.TenLopTruong.Caption = "Tên Lớp Trưởng";
+            this.TenLopTruong.FieldName = "TENLOPTRUONG";
+            this.TenLopTruong.MinWidth = 25;
+            this.TenLopTruong.Name = "TenLopTruong";
+            this.TenLopTruong.Visible = true;
+            this.TenLopTruong.VisibleIndex = 2;
+            this.TenLopTruong.Width = 94;
             // 
             // tb_TenLopTruong
             // 
-            this.tb_TenLopTruong.Location = new System.Drawing.Point(502, 57);
-            this.tb_TenLopTruong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tb_TenLopTruong.Location = new System.Drawing.Point(109, 70);
             this.tb_TenLopTruong.Name = "tb_TenLopTruong";
-            this.tb_TenLopTruong.Size = new System.Drawing.Size(207, 23);
+            this.tb_TenLopTruong.Size = new System.Drawing.Size(801, 25);
             this.tb_TenLopTruong.TabIndex = 6;
             // 
-            // DM_TenLopTruong
+            // tb_TenLop
             // 
-            this.DM_TenLopTruong.AutoSize = true;
-            this.DM_TenLopTruong.Location = new System.Drawing.Point(385, 60);
-            this.DM_TenLopTruong.Name = "DM_TenLopTruong";
-            this.DM_TenLopTruong.Size = new System.Drawing.Size(92, 16);
-            this.DM_TenLopTruong.TabIndex = 3;
-            this.DM_TenLopTruong.Text = "Tên lớp trưởng";
+            this.tb_TenLop.Location = new System.Drawing.Point(109, 41);
+            this.tb_TenLop.Name = "tb_TenLop";
+            this.tb_TenLop.Size = new System.Drawing.Size(801, 25);
+            this.tb_TenLop.TabIndex = 5;
             // 
-            // Dm_TenLop
+            // tb_MaLop
             // 
-            this.Dm_TenLop.AutoSize = true;
-            this.Dm_TenLop.Location = new System.Drawing.Point(5, 105);
-            this.Dm_TenLop.Name = "Dm_TenLop";
-            this.Dm_TenLop.Size = new System.Drawing.Size(50, 16);
-            this.Dm_TenLop.TabIndex = 1;
-            this.Dm_TenLop.Text = "Tên lớp";
+            this.tb_MaLop.Location = new System.Drawing.Point(109, 12);
+            this.tb_MaLop.Name = "tb_MaLop";
+            this.tb_MaLop.Size = new System.Drawing.Size(801, 25);
+            this.tb_MaLop.TabIndex = 4;
             // 
-            // DM_MaLop
+            // Root
             // 
-            this.DM_MaLop.AutoSize = true;
-            this.DM_MaLop.Location = new System.Drawing.Point(5, 57);
-            this.DM_MaLop.Name = "DM_MaLop";
-            this.DM_MaLop.Size = new System.Drawing.Size(45, 16);
-            this.DM_MaLop.TabIndex = 0;
-            this.DM_MaLop.Text = "Mã lớp";
+            this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.Root.GroupBordersVisible = false;
+            this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.layoutControlItem3,
+            this.layoutControlItem4});
+            this.Root.Name = "Root";
+            this.Root.Size = new System.Drawing.Size(922, 516);
+            this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.tb_MaLop;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(902, 29);
+            this.layoutControlItem1.Text = "Mã Lớp";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(85, 16);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.tb_TenLop;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 29);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(902, 29);
+            this.layoutControlItem2.Text = "Tên Lớp";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(85, 16);
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.tb_TenLopTruong;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 58);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(902, 29);
+            this.layoutControlItem3.Text = "Tên lớp trưởng";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(85, 16);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.dgv_Lop;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 87);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(902, 409);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
             // 
             // DM_Lop
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(922, 737);
-            this.Controls.Add(this.Dm_ThongTinLop);
+            this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.ribbonStatusBar1);
-            this.Controls.Add(this.dgv_Lop);
             this.Controls.Add(this.ribbonControl);
             this.Name = "DM_Lop";
             this.Ribbon = this.ribbonControl;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.StatusBar = this.ribbonStatusBar1;
             this.Text = "Danh mục lớp";
+            this.Load += new System.EventHandler(this.DM_Lop_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
+            this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Lop)).EndInit();
-            this.Dm_ThongTinLop.ResumeLayout(false);
-            this.Dm_ThongTinLop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,7 +325,6 @@
 
         #endregion
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar1;
-        private System.Windows.Forms.DataGridView dgv_Lop;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl;
         private DevExpress.XtraBars.BarButtonItem bbiPrintPreview;
         private DevExpress.XtraBars.BarStaticItem bsiRecordsCount;
@@ -261,12 +334,19 @@
         private DevExpress.XtraBars.BarButtonItem btnRefreshLop;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private System.Windows.Forms.GroupBox Dm_ThongTinLop;
-        private System.Windows.Forms.TextBox tb_MaLop;
-        private System.Windows.Forms.TextBox tb_TenLop;
+        private DevExpress.XtraLayout.LayoutControl layoutControl1;
         private System.Windows.Forms.TextBox tb_TenLopTruong;
-        private System.Windows.Forms.Label DM_TenLopTruong;
-        private System.Windows.Forms.Label Dm_TenLop;
-        private System.Windows.Forms.Label DM_MaLop;
+        private System.Windows.Forms.TextBox tb_TenLop;
+        private System.Windows.Forms.TextBox tb_MaLop;
+        private DevExpress.XtraLayout.LayoutControlGroup Root;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraGrid.GridControl dgv_Lop;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraGrid.Columns.GridColumn MaLop;
+        private DevExpress.XtraGrid.Columns.GridColumn TenLop;
+        private DevExpress.XtraGrid.Columns.GridColumn TenLopTruong;
     }
 }
